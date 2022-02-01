@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard | <%= username %></title>
+    <link rel="stylesheet" href="/src/css/dashboard.css" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <!-- Boxiocns CDN Link -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="nav-container">
+      <nav class="nav-bar admin-nav-bar">
+        <div class="navigation admin-navigation">
+          <div class="logo-box logo-box-admin">
+            <a href="/" class="logo-text">Drop.it</a>
+          </div>
+
+          <div class="nav-links">
+            <div class="general">
+              <h4>General</h4>
+              <div class="nav-link accent-bg" id="dashboard-btn">
+                <i class="bx bxs-dashboard"></i>
+                <p class="link">Dashboard</p>
+              </div>
+
+              <div class="nav-link" id="settings-btn">
+                <i class="bx bx-cog"></i>
+                <p class="link">Settings</p>
+              </div>
+            </div>
+
+            <div class="main-menu">
+              <h4>Main Menu</h4>
+
+              <div class="nav-link" id="manage-videos-btn">
+                <i class="bx bxs-videos"></i>
+                <p class="link">Videos</p>
+              </div>
+
+              <div class="nav-link" id="manage-images-btn">
+                <i class="bx bxs-file-image"></i>
+                <p class="link">Pictures</p>
+              </div>
+
+              <div class="nav-link" id="manage-others-btn">
+                <i class="bx bxs-file-doc"></i>
+                <p class="link">Documents</p>
+              </div>
+
+              <div class="nav-link" id="manage-users-btn">
+                <i class="bx bx-user"></i>
+                <p class="link">Users</p>
+              </div>
+
+              <div class="nav-link" id="manage-admins-btn">
+                <i class="bx bxs-user"></i>
+                <p class="link">Admins</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="logout">
+          <div class="user-info">
+            <p><%= username %> • <%= role %></p>
+          </div>
+
+          <div class="logout-text">
+            <i class="bx bx-log-out"></i>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <main class="main-content">
+        <div class="dashboard-section">
+          <div class="center-container margin-small">
+            <div class="welcome-message-box">
+              <h1 class="welcome-message">
+                Hey <%= username %>! Welcome To Your Dashboard.
+              </h1>
+              <div class="welcome-info">
+                <h3 class="welcome-info-text">
+                  You can monitor all the activities from here.
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="activity-box">
+            <div class="activity-heading">
+              <h2>Your Activity</h2>
+            </div>
+            <div class="details">
+              <p>Total Logins • <%= totalLogins %></p>
+              <p>Account Activated • <%= createdAt %></p>
+            </div>
+          </div>
+
+          <div class="activity-box">
+            <div class="activity-heading">
+              <h2>Your Activity</h2>
+            </div>
+            <div class="details">
+              <p>Total Logins • <%= totalLogins %></p>
+              <p>Account Activated • <%= createdAt %></p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- MODEL LOGOUT -->
+    <div class="modal__wrapper">
+      <div class="modal__container">
+        <h2 class="heading-secondary margin-small">Log Out</h2>
+        <h2 class="paragraph-secondary">Are you sure you want to logout?</h2>
+        <p class="paragraph-secondary margin-medium">
+          Note that you can seamlessly use Drop.it.
+        </p>
+        <div class="action">
+          <button class="btn btn__red" id="btn-cancel">Cancel</button>
+          <button class="btn btn__purple" id="btn-logout">Logout</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/src/js/adminDashboard.js"></script>
+  </body>
+</html>

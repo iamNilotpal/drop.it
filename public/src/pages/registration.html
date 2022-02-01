@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../../img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <title>Registration | Drop.it - File Sharing Made Easy</title>
+  </head>
+  <body>
+    <div class="registration--container">
+      <nav class="registration--navigation">
+        <div class="logo-box" draggable="false">
+          <a href="/">
+            <img
+              id="logo"
+              src="/img/logo.svg"
+              alt="Drop.it Logo"
+              draggable="false"
+            />
+          </a>
+        </div>
+        <div class="registration__nav-links">
+          <ul>
+            <li><a href="/" class="nav__link">Home</a></li>
+            <li>
+              <a href="/auth/login" class="btn btn--start">Sign In</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div id="registration--container">
+        <div class="registration--illustration-box">
+          <img
+            src="/img/illustrations/SignUp.svg"
+            alt=""
+            class="illustration"
+          />
+        </div>
+        <div class="registration--details-box">
+          <div class="registration--intro">
+            <h3 class="heading-tertiary margin-bottom-small member--colored">
+              Get started for free.
+            </h3>
+            <h3 class="heading-secondary margin-bottom-small">
+              Create a free account.
+            </h3>
+          </div>
+
+          <div class="form">
+            <form id="form" class="reg-form">
+              <div class="input--field">
+                <i class="fas fa-user"></i>
+                <input
+                  id="reg-username"
+                  type="text"
+                  placeholder="Username"
+                  autocomplete="off"
+                  name="username"
+                />
+              </div>
+
+              <div class="input--field">
+                <i class="fas fa-at"></i>
+                <input
+                  id="reg-email"
+                  type="email"
+                  placeholder="Email"
+                  autocomplete="off"
+                  name="email"
+                />
+              </div>
+
+              <div class="input--field">
+                <i class="fas fa-lock"></i>
+                <input
+                  id="reg-password"
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                />
+                <div class="show-btn">
+                  <i class="fas fa-eye"></i>
+                </div>
+              </div>
+              <div class="start--btn">
+                <button type="submit" class="btn btn--start" id="signup-btn">
+                  Sign Up
+                </button>
+              </div>
+            </form>
+            <div class="login--redirect">
+              <span class="member">Already a member?</span>
+              <a href="/auth/login" class="nav__link member--colored"
+                >Sign In</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/src/js/register.js"></script>
+  </body>
+</html>

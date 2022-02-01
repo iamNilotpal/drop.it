@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg-color-1: #272732;
+  --bg-color-2: #202035;
+  --bg-color-3: #2a2c43;
+  --bg-color-4: #242834;
+
+  --font-color-1: #d0cae5;
+  --font-color-2: #c3c2c7;
+  --font-color-3: #ffffff;
+  --font-color-4: #2b2b3d;
+
+  --active-color: #353854;
+
+  --accent-color-1: #7464fb;
+  --accent-color-2: #5c54cb;
+  --accent-color-3: #6464fb;
+
+  --margin-big: 8rem;
+
+  --default-font-size: 1.8rem;
+  --link-font-size: 1.5rem;
+
+  --big-border-radius: 0.8rem;
+  --default-border-radius: 0.5rem;
+
+  --shadow-dark: 1rem 2.5rem 6rem rgba(0, 0, 0, 0.35);
+  --shadow-medium: 1rem 2rem 4.5rem rgba(0, 0, 0, 0.35);
+}
+
+/* Universal Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-color-1) var(--bg-color-1);
+}
+
+html::-webkit-scrollbar {
+  width: 0.5vw;
+  background-color: var(--bg-color-2);
+}
+
+html::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color-1);
+  border-radius: var(--default-border-radius);
+}
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: var(--default-font-size);
+  color: var(--font-color-1);
+  font-weight: 400;
+  line-height: 1.5;
+  /* background-image: linear-gradient(
+    to right bottom,
+    rgba(43, 43, 61, 0.9),
+    rgba(35, 30, 54, 0.8)
+  ); */
+}
+
+h1,
+h2,
+h3,
+p,
+input {
+  color: inherit;
+  font-family: inherit;
+  display: inline-block;
+}
+
+/* ******************** 404 Page ******************* */
+.container-404 {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--bg-color-1),
+    var(--bg-color-2)
+  );
+  position: relative;
+}
+
+/* ******************** 401 Page ******************* */
+.container-401 {
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--bg-color-1),
+    var(--bg-color-2)
+  );
+  position: relative;
+}
+
+.logo-box {
+  cursor: pointer;
+  position: absolute;
+  top: 6rem;
+  left: 8rem;
+  width: 15rem;
+}
+
+#logo {
+  pointer-events: none;
+}
+
+.error-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 15rem 0 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.error__illustration-box {
+  max-width: 42%;
+  width: 100%;
+  pointer-events: none;
+  margin-right: var(--margin-big);
+}
+
+.error__illustration-special {
+  border-radius: var(--big-border-radius);
+  background-color: var(--accent-color-1);
+  box-shadow: var(--shadow-dark);
+}
+
+.error__content-box {
+  max-width: 35%;
+  width: 100%;
+}
+
+.border-404 {
+  border-left: 5px solid var(--accent-color-1);
+  padding-left: 3rem;
+}
+
+.error__text {
+  margin-bottom: 3rem;
+}
+
+.error-desc {
+  margin-bottom: 4rem;
+}
+
+/* ****************** Utilities ******************** */
+a:link,
+a:visited {
+  font-size: var(--link-font-size);
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  color: var(--font-color-3);
+  font-weight: 500;
+  padding: 0.8rem 2.2rem;
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.btn--start {
+  background-color: var(--accent-color-1);
+  border-radius: var(--default-border-radius);
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.btn--start:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn--start:active {
+  transform: translateY(0px);
+  box-shadow: var(--shadow-light);
+}
+
+.heading-primary {
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.35;
+  text-shadow: var(--shadow-dark);
+}
+
+.heading-secondary {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--font-color-2);
+}
+
+#brand {
+  color: var(--accent-color-1);
+}

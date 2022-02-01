@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <title>Home | Drop.it - File Sharing Made Easy</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header__container">
+        <nav class="nav">
+          <div class="logo-box" draggable="false">
+            <a href="/">
+              <img
+                id="logo"
+                src="img/logo.svg"
+                alt="Drop.it Logo"
+                draggable="false"
+              />
+            </a>
+          </div>
+          <div class="nav__items">
+            <ul>
+              <div class="nav__featured-links">
+                <li><a href="/" class="nav__link">Home</a></li>
+                <li><a href="#features" class="nav__link">Features</a></li>
+                <li><a href="#action" class="nav__link">How It Works</a></li>
+              </div>
+              <div class="nav__form-links">
+                <li>
+                  <a href="/auth/login" class="nav__link">Sign In</a>
+                </li>
+                <li>
+                  <a href="/auth/register" class="btn btn--start">Sign Up</a>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </nav>
+
+        <header class="header">
+          <div class="header__description">
+            <div class="header__description-wrapper">
+              <h1 class="heading-primary margin-bottom-medium">
+                Sharing is caring. We just make it faster and better,
+                <span id="decoration">with safety</span>.
+              </h1>
+              <p class="paragraph">
+                <span id="brand">Drop.it,</span> is a simple file sharing web
+                application, which provides a simple and easy to use
+                user-interface.
+              </p>
+            </div>
+
+            <a href="/auth/register" class="btn btn--start">Get Started</a>
+          </div>
+
+          <div class="illustration-box">
+            <img
+              class="illustration"
+              src="img/illustrations/composition-1.svg"
+              alt="Illustration"
+              draggable="false"
+            />
+          </div>
+        </header>
+      </div>
+
+      <main class="features" id="features">
+        <div class="features__heading">
+          <h2 class="heading-secondary--animated">Features</h2>
+        </div>
+        <div class="features__box">
+          <div class="feature">
+            <div class="feature__icon-box">
+              <img
+                src="img/icons/icon-access-anywhere.svg"
+                alt="Feature Icon"
+              />
+            </div>
+            <div class="feature__text-box">
+              <h3 class="heading-tertiary margin-bottom-small">
+                Access your files, anywhere
+              </h3>
+              <p class="paragraph-secondary">
+                The ability to use a smartphone, tablet, or computer to access
+                your account means your files follow you everywhere.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature__icon-box">
+              <img src="img/icons/icon-any-file.svg" alt="Feature Icon" />
+            </div>
+            <div class="feature__text-box">
+              <h3 class="heading-tertiary margin-bottom-small">
+                Store any type of file
+              </h3>
+              <p class="paragraph-secondary">
+                Whether you're sharing holidays photos or work documents,
+                Drop.it has you covered allowing for all file types to be
+                shared.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature__icon-box">
+              <img src="img/icons/icon-security.svg" alt="Feature Icon" />
+            </div>
+            <div class="feature__text-box">
+              <h3 class="heading-tertiary margin-bottom-small">
+                Security you can trust
+              </h3>
+              <p class="paragraph-secondary">
+                Authentication and encryption are security features that will
+                allow to help secure your data.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="feature__icon-box">
+              <img src="img/icons/icon-collaboration.svg" alt="Feature Icon" />
+            </div>
+            <div class="feature__text-box">
+              <h3 class="heading-tertiary margin-bottom-small">
+                One time link
+              </h3>
+              <p class="paragraph-secondary">
+                Securely share files and folders with friends, family and
+                colleagues for live collaboration. No email attachments
+                required.
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <section class="action" id="action">
+        <div class="action__heading">
+          <h2 class="heading-secondary--animated">How it works</h2>
+        </div>
+        <div class="action__box">
+          <div class="illustration-box">
+            <img
+              class="illustration"
+              src="img/illustrations/composition-3.svg"
+              alt="Illustration"
+              draggable="false"
+            />
+          </div>
+          <div class="action__text-box">
+            <h1 class="action-heading margin-bottom-medium">
+              All your files in one secure location, accessible anywhere.
+            </h1>
+            <p class="action-paragraph margin-bottom-medium">
+              Drop.it stores all your important files in one secure location.
+              Wherever you need, share and collaborate with friends family, and
+              co-workers.
+            </p>
+            <a href="/auth/register" class="btn btn--start">Get Started</a>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer__logo-box" draggable="false">
+          <h1 class="footer__logo" id="decoration">Drop.it</h1>
+        </div>
+        <p class="paragraph-bold">&copy; 2021 Drop.it All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

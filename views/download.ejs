@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Download | Drop.it - File Sharing Made Easy</title>
+    <link rel="stylesheet" href="/src/css/download.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo-box">
+        <a href="/" target="_blank" rel="noopener noreferrer">
+          <img src="/img/logo.svg" alt="Drop.it logo" class="logo" />
+        </a>
+      </div>
+    </header>
+
+    <main class="download">
+        <% if(locals.error){ %>
+            <div class="error--box">
+              <div class="error--icon">
+                  <img src="/img/illustrations/404.svg" alt="Error Illustration" srcset="">
+              </div>
+              <div class="error-text">
+                <p class="paragraph-error">Oops! <%= locals.error %></p>
+              </div>
+            </div>
+            <% } else { %>
+            <div class="success-box">
+                <div class="download__icon-box">
+                  <img
+                    class="download__icon"
+                    src="/img/icons/download-sd.svg"
+                    alt="inshare-download"
+                  />
+                </div>
+                <div class="download-info margin-bottom-small">
+                  <h2 class="heading-tertiary">Your file is ready to download</h2>
+                  <p class="paragraph">Link expires in 24 hours</p>
+                </div>
+                <div class="download__item-meta">
+                  <h4 class="paragraph"><%= fileName %></h4>
+                  <small><%= fileSize %></small>
+                </div>
+
+                <a class="btn btn--start" href="<%= downloadLink %>">Download File</a>
+            </div>
+          <% } %>
+    </main>
+    </a>
+  </body>
+</html>
