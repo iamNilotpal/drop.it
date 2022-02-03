@@ -6,7 +6,6 @@ const {
   isAdminLoggedIn,
   isUserLoggedIn,
 } = require('../../middlewares/isLoggedIn');
-
 const { loginLimitter } = require('../../helpers/rateLimitter');
 
 // ------------------ Admin Login ------------------ //

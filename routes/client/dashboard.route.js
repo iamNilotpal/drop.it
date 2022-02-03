@@ -1,7 +1,7 @@
 const express = require('express');
 const Router = express.Router();
-const authorizeUser = require('../../middlewares/authorizeUser');
 
+const authorizeUser = require('../../middlewares/authorizeUser');
 const { apiLimitter } = require('../../helpers/rateLimitter');
 
 // -------------------- User Dashboard -------------------- //
@@ -14,7 +14,7 @@ Router.get(
 // ---------------------- Change Username And Email ----------------------
 Router.post(
   '/user/change-info',
-  require('../../middlewares/authorizeUser'),
+  authorizeUser,
   require('../../controllers/client/changeinfo')
 );
 
@@ -93,7 +93,7 @@ Router.get(
 // ---------------------- Delete Account ---------------------- //
 Router.delete(
   '/user/delete-account',
-  require('../../middlewares/authorizeUser'),
+  authorizeUser,
   require('../../controllers/client/deleteAccount')
 );
 

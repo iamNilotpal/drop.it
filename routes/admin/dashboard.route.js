@@ -55,14 +55,14 @@ Router.post(
 // ------------------ Admin Change Password ------------------ //
 Router.post(
   '/admin/change-password',
-  require('../../middlewares/authorizeAdmin'),
+  authorizeAdmin,
   require('../../controllers/admin/changePassword')
 );
 
 // ---------------------- Change Username And Email ----------------------
 Router.post(
   '/admin/change-info',
-  require('../../middlewares/authorizeAdmin'),
+  authorizeAdmin,
   require('../../controllers/admin/changeinfo')
 );
 
