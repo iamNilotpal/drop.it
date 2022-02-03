@@ -110,9 +110,11 @@ a:visited {
     var(--bg-color-4)
   );
   padding: 4rem 2rem;
+  padding-top: 3rem;
   border-radius: 2rem;
   box-shadow: var(--shadow-medium);
   text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .error--box {

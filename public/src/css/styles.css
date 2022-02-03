@@ -118,6 +118,7 @@ input {
       rgba(35, 30, 54, 0.9)
     ),
     url('/img/bgs/bg11.svg');
+  backdrop-filter: blur(40px);
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -100;
@@ -129,6 +130,8 @@ input {
   width: 100%;
   margin: 0 auto;
   padding-bottom: 15rem;
+  background-image: url('../../img/illustrations/certificate-lines.svg');
+  background-size: cover;
 }
 
 /* --------------------  Navigation -------------------- */
@@ -247,14 +250,18 @@ a.nav__link:hover {
   width: 100%;
 }
 
+.illustration-box {
+  height: 35rem;
+}
+
 /* --------------------  Reusable Illustration Box -------------------- */
 .illustration-box {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.6rem 1.3rem;
+  border: 2.2px solid rgba(255, 255, 255, 0.2);
   border-radius: 5rem;
-  border: 1rem solid var(--accent-color-1);
   margin-left: var(--margin-small);
   box-shadow: 2rem 4rem 6rem rgba(0, 0, 0, 0.35);
   pointer-events: none;
