@@ -105,6 +105,50 @@ input {
   position: relative;
 }
 
+.container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.2;
+  background-image: url('/img/bgs/Path1.svg');
+  background-repeat: no-repeat;
+  background-size: 175%;
+  background-position: top;
+  z-index: -10;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.3;
+  background-image: url('/img/bgs/Path2.svg');
+  background-repeat: no-repeat;
+  background-size: 175%;
+  background-position: top;
+  z-index: -10;
+}
+
+/* --------------------  Header Container -------------------- */
+.header__container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 15rem;
+  background-image: url('../../img/illustrations/certificate-lines.svg');
+  background-size: cover;
+}
+
 .header__container::after {
   content: '';
   position: absolute;
@@ -116,7 +160,7 @@ input {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.9),
+      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.88),
       rgba(35, 30, 54, 0.9)
     ),
     url('/img/bgs/bg11.svg');
@@ -124,16 +168,6 @@ input {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -100;
-}
-
-/* --------------------  Header Container -------------------- */
-.header__container {
-  max-width: var(--max-width);
-  width: 100%;
-  margin: 0 auto;
-  padding-bottom: 15rem;
-  background-image: url('../../img/illustrations/certificate-lines.svg');
-  background-size: cover;
 }
 
 /* --------------------  Navigation -------------------- */
@@ -427,10 +461,10 @@ a.nav__link:hover {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      rgba(43, 43, 61, 0.92),
-      rgba(35, 30, 54, 0.92)
+      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.8),
+      rgba(35, 30, 54, 0.8)
     ),
-    url('/img/bgs/bg9.svg');
+    url('/img/bgs/bg17.svg');
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1000;
@@ -718,7 +752,6 @@ input {
   letter-spacing: 0.5rem;
   padding-left: 1.5rem;
   padding-right: 1rem;
-  border: 2.2px solid rgba(255, 255, 255, 0.2);
   border-radius: 1rem;
   transition: all 0.3s ease;
 }
