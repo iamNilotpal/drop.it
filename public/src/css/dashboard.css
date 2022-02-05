@@ -5,14 +5,17 @@
   --bg-color-2: #232323;
   --bg-color-3: #2a2c43;
   --bg-color-4: #242834;
-  --bg-color-6: #232124;
+  --bg-color-5: #232124;
+  --bg-color-6: #1a1b21;
 
-  --font-color-1: #d0cae5;
+  /* --font-color-1: #d0cae5; */
+  --font-color-1: #fafbfc;
   --font-color-2: #c3c2c7;
   --font-color-3: #ffffff;
   --font-color-4: #2b2b3d;
 
-  --accent-color-1: #7464fb;
+  /* --accent-color-1: #7464fb; */
+  --accent-color-1: #8467f3;
   --accent-color-2: #5c54cb;
   --accent-color-3: #6464fb;
 
@@ -137,6 +140,7 @@ a:visited {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 0.7px solid rgba(255, 255, 255, 0.2);
 }
 
 .admin-nav-bar {
@@ -236,7 +240,7 @@ a:visited {
 .admin-functionality {
   font-weight: 700;
   font-size: 1.4rem;
-  background-color: var(--bg-color-6);
+  background-color: var(--bg-color-5);
   margin-bottom: 2rem;
   padding: 1.2rem 1rem;
   text-align: center;
@@ -287,11 +291,12 @@ a:visited {
 /* --------------------  Container -------------------  */
 .container {
   width: 72%;
-  min-height: 88vh;
+  min-height: 87vh;
   border-radius: 2.5rem;
   box-shadow: var(--shadow-dark);
   background-color: var(--bg-color-1);
   padding: 2.8rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .dashboard-section {
@@ -377,7 +382,7 @@ a:visited {
   font-size: 1.5rem;
   display: inline-block;
   margin: 0 auto;
-  background-color: var(--bg-color-1);
+  background-color: var(--bg-color-6);
   padding: 2rem 4rem;
   border: 0.7px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--default-border-radius);
@@ -849,7 +854,7 @@ a:visited {
 .history-info {
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-color-6);
+  background-color: var(--bg-color-5);
   margin-bottom: 2rem;
   padding: 1rem 2rem;
   border-radius: var(--big-border-radius);
@@ -1270,7 +1275,7 @@ circle:nth-of-type(4) {
   background-image: linear-gradient(
     to right bottom,
     var(--bg-color-2),
-    var(--bg-color-6)
+    var(--bg-color-5)
   );
   margin: 0 auto;
   width: 60%;
@@ -1464,7 +1469,7 @@ circle:nth-of-type(4) {
   font-size: 2rem;
   font-weight: 700;
   width: 46%;
-  background-color: var(--bg-color-6);
+  background-color: var(--bg-color-5);
   padding: 1rem 2rem;
   border-radius: var(--default-border-radius);
 }
@@ -1595,7 +1600,7 @@ a:visited {
 
 .welcome-message-box--dark {
   display: inline-block;
-  background-color: var(--bg-color-6);
+  background-color: var(--bg-color-5);
   padding: 2rem 3rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--default-border-radius);

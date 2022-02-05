@@ -3,6 +3,7 @@
   --bg-color-2: #202035;
   --bg-color-3: #2a2c43;
   --bg-color-4: #242834;
+  --bg-color-5: #1a1b21;
 
   --font-color-1: #d0cae5;
   --font-color-2: #c3c2c7;
@@ -75,7 +76,7 @@ body::after {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      rgba(39, 39, 50, 0.95),
+      rgba(26, 27, 33, 0.85),
       rgba(36, 40, 52, 0.9)
     ),
     url('/img/bgs/bg11.svg');

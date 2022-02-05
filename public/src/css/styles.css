@@ -6,12 +6,14 @@
   --bg-color-3: #202035;
   --bg-color-4: #2a2c43;
   --bg-color-5: #242834;
+  --bg-color-6: #1a1b21;
 
   --font-color-1: #d0cae5;
   --font-color-2: #c3c2c7;
-  --font-color-3: #ffffff;
+  --font-color-3: #fafbfc;
 
-  --accent-color-1: #7464fb;
+  /* --accent-color-1: #7464fb; */
+  --accent-color-1: #8467f3;
   --accent-color-2: #8259ec;
   --accent-color-3: #5c54cb;
   --accent-color-4: #6464fb;
@@ -70,7 +72,7 @@ html::-webkit-scrollbar-thumb {
 body {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: var(--default-font-size);
-  color: var(--font-color-1);
+  color: var(--font-color-3);
   font-weight: 400;
   min-height: 100vh;
   line-height: 1.5;
@@ -114,7 +116,7 @@ input {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      rgba(43, 43, 61, 0.95),
+      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.9),
       rgba(35, 30, 54, 0.9)
     ),
     url('/img/bgs/bg11.svg');
@@ -383,6 +385,7 @@ a.nav__link:hover {
   font-size: 1.5rem;
   font-weight: 600;
   text-transform: capitalize;
+  color: var(--font-color-1);
 }
 
 /* --------------------  Footer -------------------- */
@@ -398,7 +401,7 @@ a.nav__link:hover {
 }
 
 .footer__logo-box {
-  height: 4rem;
+  height: 3rem;
   margin-bottom: var(--margin-medium);
 }
 
@@ -739,6 +742,7 @@ input {
   max-width: 85%;
   font-size: 2rem;
   font-weight: 500;
+  color: var(--font-color-1);
 }
 
 .paragraph-secondary {
