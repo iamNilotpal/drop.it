@@ -16,6 +16,7 @@ async function allowLogUserIn(userId, req, res) {
       domain: process.env.ROOT_DOMAIN,
       secure: true,
       httpOnly: true,
+      sameSite: 'none',
     });
 
     res.cookie('uidRefreshToken', refreshToken, {
@@ -23,6 +24,7 @@ async function allowLogUserIn(userId, req, res) {
       domain: process.env.ROOT_DOMAIN,
       secure: true,
       httpOnly: true,
+      sameSite: 'none',
       maxAge: 1000 * 60 * 60 * 24 * 30,
     });
   } catch (error) {
