@@ -148,7 +148,7 @@ module.exports = ({ emailFrom, downloadLink, size, expires }) => {
                             <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
                                 <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Drop.it All Rights Reserved.</span>
-                                <br> Want to share a file? <a href="https://drop.it" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">Drop.it</a>.
+                                <br> Want to share a file? <a href="https://drop-drive.herokuapp.com" style="text-decoration: underline; color: #999999; font-size: 12px; text-align: center;">Drop.it</a>.
                             </td>
                             </tr>
                         </table>
