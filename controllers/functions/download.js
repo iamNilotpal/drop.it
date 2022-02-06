@@ -25,7 +25,7 @@ async function renderDownloadPage(req, res, next) {
         return res.status(200).render('download', {
           fileName: getSmallFileName(existFile.fileName),
           fileSize: formatBytes(existFile.fileSize),
-          downloadLink: `https://${process.env.ROOT_DOMAIN}/file/download/${existFile.uuid}`,
+          downloadLink: `${process.env.ROOT_DOMAIN}/file/download/${existFile.uuid}`,
         });
       }
     } else {
@@ -67,7 +67,7 @@ async function downloadFile(req, res) {
       return res.status(404).render('erros/404');
     }
   } catch (error) {
-    return res.status(404).render('elient/download', {
+    return res.status(404).render('client/download', {
       error: 'Something Went Wrong. Please Try Again Later.',
     });
   }

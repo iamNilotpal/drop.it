@@ -26,7 +26,7 @@ async function deleteUserAccount(user, req, res, next) {
     return res.status(200).json({
       ok: true,
       message: 'Account Deleted. Thank you for using our service.',
-      redirectUrl: `https://${process.env.ROOT_DOMAIN}`,
+      redirectUrl: `${process.env.ROOT_DOMAIN}`,
     });
   } catch (error) {
     return next(

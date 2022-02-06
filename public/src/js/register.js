@@ -6,6 +6,7 @@ const regEmail = document.querySelector('#reg-email');
 const registrationContainer = document.querySelector(
   '.registration--container'
 );
+const BASE_URL = 'https://drop-it-file.herokuapp.com';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -33,7 +34,7 @@ form.addEventListener('submit', async (e) => {
   signupBtn.style.opacity = '0.9';
 
   try {
-    const response = await fetch('/auth/register', {
+    const response = await fetch(`${BASE_URL}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -70,7 +70,7 @@ async function registerUser(req, res, next) {
       return res.status(200).json({
         ok: true,
         message: 'Registered Successfully. Redirecting To Login Page.',
-        redirectUrl: `https://${process.env.ROOT_DOMAIN}/auth/login`,
+        redirectUrl: `${process.env.ROOT_DOMAIN}/auth/login`,
       });
     }
   } catch (error) {

@@ -3,6 +3,7 @@ const loginBtn = document.getElementById('login-btn');
 const loginPassword = document.querySelector('#login-password');
 const loginEmail = document.querySelector('#login-email');
 const loginContainer = document.querySelector('.login--container');
+const BASE_URL = 'https://drop-it-file.herokuapp.com';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -19,7 +20,7 @@ form.addEventListener('submit', async (e) => {
   loginBtn.style.opacity = '0.9';
 
   try {
-    const response = await fetch('/auth/login', {
+    const response = await fetch(`${BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -46,7 +46,7 @@ async function uploadFile(user, req, res, next) {
 
       return res.status(200).json({
         ok: true,
-        fileUrl: `https://${process.env.ROOT_DOMAIN}/uploads/file/${file.uuid}`,
+        fileUrl: `${process.env.ROOT_DOMAIN}/uploads/file/${file.uuid}`,
         message: 'File uploaded. Copy the link or send it via Email.',
       });
     });

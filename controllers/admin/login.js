@@ -27,7 +27,7 @@ async function loginUser(req, res, next) {
         return res.status(200).json({
           ok: true,
           message: 'Logged In. Redirecting To Admin Dashboard.',
-          redirectUrl: `https://${process.env.ROOT_DOMAIN}/admin/dashboard`,
+          redirectUrl: `${process.env.ROOT_DOMAIN}/admin/dashboard`,
         });
       } else
         return res.status(403).json({

@@ -2,6 +2,7 @@ const form = document.querySelector('.login-form');
 const loginPassword = document.querySelector('#login-password');
 const loginEmail = document.querySelector('#login-email');
 const loginContainer = document.querySelector('.login--container');
+const BASE_URL = 'https://drop-it-file.herokuapp.com';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -13,7 +14,7 @@ form.addEventListener('submit', async (e) => {
   }
 
   try {
-    const response = await fetch('/admin/auth/login', {
+    const response = await fetch(`${BASE_URL}/admin/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

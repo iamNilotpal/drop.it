@@ -39,7 +39,7 @@ async function sendEmailToClient(user, req, res, next) {
         } shared a file with you. Total size ${formatBytes(file.fileSize)}.`,
         html: htmlTemplate({
           emailFrom: user.email.address,
-          downloadLink: `https://${process.env.ROOT_DOMAIN}/uploads/file/${file.uuid}`,
+          downloadLink: `${process.env.ROOT_DOMAIN}/uploads/file/${file.uuid}`,
           size: formatBytes(file.fileSize),
           expires: '24 Hours',
         }),
