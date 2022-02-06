@@ -10,7 +10,7 @@
   const settingsContainerBtn = document.getElementById('settings-btn');
 
   /* ----------- URL--------------  */
-  const BASE_URL = 'https://drop-it-file.herokuapp.com';
+  const BASE_URL = 'https://drop-drive.herokuapp.com';
   const LOGIN_URL = `${BASE_URL}/auth/login`;
 
   /* ----------- Navigation Buttons Functionality --------------  */

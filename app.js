@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 
 const app = express();
-const BASE_URL = 'https://drop-it-file.herokuapp.com';
+const BASE_URL = 'https://drop-drive.herokuapp.com';
 
 app.use(
   cors({

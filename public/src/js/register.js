@@ -6,7 +6,7 @@ const regEmail = document.querySelector('#reg-email');
 const registrationContainer = document.querySelector(
   '.registration--container'
 );
-const BASE_URL = 'https://drop-it-file.herokuapp.com';
+const BASE_URL = 'https://drop-drive.herokuapp.com';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();

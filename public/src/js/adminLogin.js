@@ -2,7 +2,7 @@ const form = document.querySelector('.login-form');
 const loginPassword = document.querySelector('#login-password');
 const loginEmail = document.querySelector('#login-email');
 const loginContainer = document.querySelector('.login--container');
-const BASE_URL = 'https://drop-it-file.herokuapp.com';
+const BASE_URL = 'https://drop-drive.herokuapp.com';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();

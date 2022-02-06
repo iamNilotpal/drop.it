@@ -13,7 +13,6 @@ async function allowLogUserIn(userId, req, res) {
 
     res.cookie('uidAccessToken', accessToken, {
       path: '/',
-      // domain: '.herokuapp.com',
       secure: true,
       httpOnly: true,
       sameSite: 'none',
@@ -21,7 +20,6 @@ async function allowLogUserIn(userId, req, res) {
 
     res.cookie('uidRefreshToken', refreshToken, {
       path: '/',
-      // domain: '.herokuapp.com',
       secure: true,
       httpOnly: true,
       sameSite: 'none',
