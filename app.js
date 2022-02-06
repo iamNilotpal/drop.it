@@ -3,6 +3,7 @@ const express = require('express');
 const httpErrors = require('http-errors');
 const cookieParser = require('cookie-parser');
 const nodeScheduler = require('node-schedule');
+const compression = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
 
@@ -28,6 +29,7 @@ nodeScheduler.scheduleJob(
 
 // --------------- Middlewares --------------- //
 app.use(helmet());
+app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
