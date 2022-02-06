@@ -1,14 +1,7 @@
 module.exports.clearUserAccessAndRefreshTokens = async function (res) {
   try {
-    res.clearCookie('uidAccessToken', {
-      path: '/',
-      domain: process.env.ROOT_DOMAIN,
-    });
-
-    res.clearCookie('uidRefreshToken', {
-      path: '/',
-      domain: process.env.ROOT_DOMAIN,
-    });
+    res.clearCookie('uidAccessToken', { path: '/' });
+    res.clearCookie('uidRefreshToken', { path: '/' });
   } catch (error) {
     throw new Error('Something Went Wrong. Please Try Again Later...!!!');
   }
@@ -16,15 +9,8 @@ module.exports.clearUserAccessAndRefreshTokens = async function (res) {
 
 module.exports.clearAdminAccessAndRefreshTokens = async function (res) {
   try {
-    res.clearCookie('aidAccessToken', {
-      path: '/',
-      domain: process.env.ROOT_DOMAIN,
-    });
-
-    res.clearCookie('aidRefreshToken', {
-      path: '/',
-      domain: process.env.ROOT_DOMAIN,
-    });
+    res.clearCookie('aidAccessToken', { path: '/' });
+    res.clearCookie('aidRefreshToken', { path: '/' });
   } catch (error) {
     throw new Error('Something Went Wrong. Please Try Again Later...!!!');
   }
