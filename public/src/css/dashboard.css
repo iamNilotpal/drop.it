@@ -101,7 +101,7 @@ body::after {
       rgba(39, 39, 50, 0.5),
       rgba(35, 33, 36, 0.6)
     ),
-    url('/img/bgs/bg12.svg');
+    url('/img/bgs/bg18.svg');
   backdrop-filter: blur(40px);
   background-size: cover;
   background-repeat: no-repeat;

@@ -145,7 +145,7 @@ input {
   width: 100%;
   margin: 0 auto;
   padding-bottom: 15rem;
-  background-image: url('../../img/illustrations/certificate-lines.svg');
+  background-image: url('/img/illustrations/certificate-lines.svg');
   background-size: cover;
 }
 
@@ -461,12 +461,13 @@ a.nav__link:hover {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.8),
-      rgba(35, 30, 54, 0.8)
+      rgba(43, 43, 61, 0.95),
+      rgba(35, 30, 54, 0.95)
     ),
-    url('/img/bgs/bg17.svg');
+    url('/img/bgs/bg19.svg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: left;
   z-index: -1000;
 }
 
