@@ -4,8 +4,19 @@ const httpErrors = require('http-errors');
 const cookieParser = require('cookie-parser');
 const nodeScheduler = require('node-schedule');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const app = express();
+const BASE_URL = 'https://drop-it-file.herokuapp.com';
+
+app.use(
+  cors({
+    origin: BASE_URL,
+    credentials: true,
+    methods: ['GET', 'POST', 'DELETE'],
+  })
+);
+app.set('trust proxy', 1);
 app.disable('x-powered-by');
 
 /* ------- Scheduler To Delete Files From DB (Runs Every 5 Hour) ------- */
