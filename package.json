@@ -4,8 +4,8 @@
   "description": "Drop.it is a simple file sharing web application.",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "prod": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [
     "auth",
