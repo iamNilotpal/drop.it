@@ -160,8 +160,8 @@ input {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.89),
-      rgba(35, 30, 54, 0.9)
+      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.91),
+      /* rgba(35, 30, 54, 0.9) */ rgba(43, 43, 61, 0.9)
     ),
     url('/img/bgs/bg11.svg');
   backdrop-filter: blur(40px);
