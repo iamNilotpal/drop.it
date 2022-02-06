@@ -117,7 +117,7 @@ body::before {
   left: 0;
   bottom: 0;
   right: 0;
-  opacity: 0.05;
+  opacity: 0.1;
   background-image: url('/img/bgs/bg19.svg');
   background-position: center;
   background-size: cover;

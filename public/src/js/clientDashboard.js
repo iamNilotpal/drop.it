@@ -586,6 +586,7 @@
   /* ----------- Manage Images Functionality Section --------------  */
   const manageImagesSection = document.getElementById('manage-images-btn');
   manageImagesSection.addEventListener('click', async () => {
+    showLoadingAnimation();
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/user/history/get-images`,
@@ -614,6 +615,7 @@
   /* ----------- Manage Videos Functionality Section --------------  */
   const manageVideosSection = document.getElementById('manage-videos-btn');
   manageVideosSection.addEventListener('click', async () => {
+    showLoadingAnimation();
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/user/history/get-videos`,
@@ -642,6 +644,7 @@
   /* ----------- Manage Others Functionality Section --------------  */
   const manageOthersSection = document.getElementById('manage-others-btn');
   manageOthersSection.addEventListener('click', async () => {
+    showLoadingAnimation();
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/user/history/get-others`,
