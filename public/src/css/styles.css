@@ -6,7 +6,7 @@
   --bg-color-3: #202035;
   --bg-color-4: #2a2c43;
   --bg-color-5: #242834;
-  --bg-color-6: #1a1b21;
+  --bg-color-6: #26272e;
 
   --font-color-1: #d0cae5;
   --font-color-2: #c3c2c7;
@@ -160,8 +160,8 @@ input {
   height: 100%;
   background-image: linear-gradient(
       to right bottom,
-      /* rgba(43, 43, 61, 0.95), */ rgba(26, 27, 33, 0.91),
-      /* rgba(35, 30, 54, 0.9) */ rgba(43, 43, 61, 0.9)
+      /* rgba(43, 43, 61, 0.95), rgba(26, 27, 33, 0.91), */ var(--bg-color-6),
+      /* rgba(35, 30, 54, 0.9) */ rgba(43, 43, 61, 0.93)
     ),
     url('/img/bgs/bg11.svg');
   backdrop-filter: blur(40px);
