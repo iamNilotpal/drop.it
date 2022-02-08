@@ -5,14 +5,14 @@ async function userDashboardController(user, req, res, next) {
   try {
     const recentFiles = await File.find({})
       .sort('-createdAt')
-      .limit(5)
+      .limit(3)
       .select('uploaderInfo.email fileSize -_id')
       .lean()
       .exec();
 
     const recentUsers = await User.find({ role: { $ne: 'Admin' } })
       .sort('-createdAt')
-      .limit(5)
+      .limit(3)
       .select('username email.address -_id')
       .lean()
       .exec();
