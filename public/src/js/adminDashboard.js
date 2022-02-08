@@ -409,6 +409,7 @@
   const manageImagesSection = document.getElementById('manage-images-btn');
   manageImagesSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    const type = 'Images';
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-images`,
@@ -418,13 +419,13 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response, 'Images');
+          await renderManageFiles(response, type);
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-image')
+              deleteAndRenderFiles(e, 'remove-image', type)
             )
           );
         } else showToast(response.message);
@@ -438,6 +439,7 @@
   const manageVideosSection = document.getElementById('manage-videos-btn');
   manageVideosSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    const type = 'Videos';
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-videos`,
@@ -447,13 +449,13 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response, 'Videos');
+          await renderManageFiles(response, type);
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-video')
+              deleteAndRenderFiles(e, 'remove-video', type)
             )
           );
         } else showToast(response.message);
@@ -467,6 +469,7 @@
   const manageOthersSection = document.getElementById('manage-others-btn');
   manageOthersSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    const type = 'Documents';
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-others`,
@@ -476,13 +479,13 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response, 'Documents');
+          await renderManageFiles(response, type);
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-other')
+              deleteAndRenderFiles(e, 'remove-other', type)
             )
           );
         } else showToast(response.message);
@@ -675,7 +678,7 @@
   }
 
   /* ----------- Render Functionality Manage Files Section --------------  */
-  async function deleteAndRenderFiles(e, endpoint) {
+  async function deleteAndRenderFiles(e, endpoint, type) {
     const parentNode = e.target.parentNode.parentNode;
     const uuid = parentNode.children[0].children[1].innerText;
     const response = await authorizeUserPost(
@@ -686,7 +689,7 @@
 
     if (response) showToast('File Removed.');
     if (response?.ok) {
-      renderManageFiles(response);
+      renderManageFiles(response, type);
       const trashIcons = document.querySelectorAll('.bxs-trash');
       trashIcons.forEach((trashIcon) =>
         trashIcon.addEventListener('click', (e) =>
@@ -707,7 +710,7 @@
             </h1>
             <div class="welcome-info">
               <h3 class="welcome-info-text">
-                Only ${type} files history will appear here. 
+                Only ${type} files history will appear here. File information will include file size, uploader, download link etc. 
               </h3>
             </div>
           </div>
@@ -904,7 +907,7 @@
 
             <div class="user-details--box">
               <p>Created At</p>
-              <p>${new Date(user.createdAt).toDateString()}}</p>
+              <p>${new Date(user.createdAt).toDateString()}</p>
             </div>
 
             <div class="user-details--box trash">
