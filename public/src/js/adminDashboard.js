@@ -409,7 +409,6 @@
   const manageImagesSection = document.getElementById('manage-images-btn');
   manageImagesSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    const type = 'Images';
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-images`,
@@ -419,13 +418,13 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response, type);
+          await renderManageFiles(response);
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-image', type)
+              deleteAndRenderFiles(e, 'remove-image')
             )
           );
         } else showToast(response.message);
@@ -439,7 +438,7 @@
   const manageVideosSection = document.getElementById('manage-videos-btn');
   manageVideosSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    const type = 'Videos';
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-videos`,
@@ -449,13 +448,13 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response, type);
+          await renderManageFiles(response);
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-video', type)
+              deleteAndRenderFiles(e, 'remove-video')
             )
           );
         } else showToast(response.message);
@@ -469,7 +468,6 @@
   const manageOthersSection = document.getElementById('manage-others-btn');
   manageOthersSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    const type = 'Documents';
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-others`,
@@ -479,13 +477,13 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response, type);
+          await renderManageFiles(response);
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-other', type)
+              deleteAndRenderFiles(e, 'remove-other')
             )
           );
         } else showToast(response.message);
@@ -678,7 +676,7 @@
   }
 
   /* ----------- Render Functionality Manage Files Section --------------  */
-  async function deleteAndRenderFiles(e, endpoint, type) {
+  async function deleteAndRenderFiles(e, endpoint) {
     const parentNode = e.target.parentNode.parentNode;
     const uuid = parentNode.children[0].children[1].innerText;
     const response = await authorizeUserPost(
@@ -689,7 +687,7 @@
 
     if (response) showToast('File Removed.');
     if (response?.ok) {
-      renderManageFiles(response, type);
+      renderManageFiles(response);
       const trashIcons = document.querySelectorAll('.bxs-trash');
       trashIcons.forEach((trashIcon) =>
         trashIcon.addEventListener('click', (e) =>
@@ -699,7 +697,7 @@
     }
   }
 
-  async function renderManageFiles(response, type) {
+  async function renderManageFiles(response) {
     if (response.files.length === 0) {
       const html = `
       <section class="files-history-section">
@@ -710,7 +708,7 @@
             </h1>
             <div class="welcome-info">
               <h3 class="welcome-info-text">
-                Only ${type} files history will appear here. File information will include file size, uploader, download link etc. 
+                File information will include file size, uploader email, download link etc. 
               </h3>
             </div>
           </div>
