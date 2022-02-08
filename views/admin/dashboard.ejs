@@ -113,16 +113,12 @@
               <div class="details">
                 <% if (recentFiles.length === 0) { %>
                 <p>
-                  No file hsitory found. Wait for someone to upload. Only
-                  Filesize and Uploader information will appear here.
+                  No file hsitory found. Wait for someone to upload. Note that
+                  Only Filesize and Uploader information will appear here.
                 </p>
-                <% } else { %>
-                <div class="details">
-                  <% recentFiles.forEach(file => { %>
-                  <p><%= file.uploaderInfo.email %> • <%= file.fileSize %></p>
-                  <% }) %>
-                </div>
-                <% } %>
+                <% } else { %> <% recentFiles.forEach(file => { %>
+                <p><%= file.uploaderInfo.email %> • <%= file.fileSize %></p>
+                <% }) %> <% } %>
               </div>
             </div>
 
@@ -131,9 +127,15 @@
                 <h2>Recent Users</h2>
               </div>
               <div class="details">
-                <% recentUsers.forEach(user => { %>
+                <% if (recentUsers.length === 0) { %>
+                <p>
+                  No User account details found. Invite someone to create an
+                  account and then come back. Note that only Filesize and
+                  Uploader information will appear here.
+                </p>
+                <% } else { %> <% recentUsers.forEach(user => { %>
                 <p><%= user.username %> • <%= user.email.address %></p>
-                <% }) %>
+                <% }) %> <% } %>
               </div>
             </div>
           </div>
