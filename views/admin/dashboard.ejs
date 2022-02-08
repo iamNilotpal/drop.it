@@ -35,6 +35,17 @@
             </div>
 
             <div class="main-menu">
+              <h4>Users & Admins</h4>
+              <div class="nav-link" id="manage-users-btn">
+                <i class="bx bx-user"></i>
+                <p class="link">Users</p>
+              </div>
+
+              <div class="nav-link" id="manage-admins-btn">
+                <i class="bx bxs-user"></i>
+                <p class="link">Admins</p>
+              </div>
+
               <h4>Manage Files</h4>
               <div class="nav-link" id="manage-videos-btn">
                 <i class="bx bxs-videos"></i>
@@ -49,17 +60,6 @@
               <div class="nav-link" id="manage-others-btn">
                 <i class="bx bxs-file-doc"></i>
                 <p class="link">Documents</p>
-              </div>
-
-              <h4>Users & Admins</h4>
-              <div class="nav-link" id="manage-users-btn">
-                <i class="bx bx-user"></i>
-                <p class="link">Users</p>
-              </div>
-
-              <div class="nav-link" id="manage-admins-btn">
-                <i class="bx bxs-user"></i>
-                <p class="link">Admins</p>
               </div>
             </div>
           </div>
@@ -93,23 +93,48 @@
             </div>
           </div>
 
-          <div class="activity-box">
-            <div class="activity-heading">
-              <h2>Your Activity</h2>
+          <div class="activities">
+            <div class="recent__activity-box">
+              <div class="activity-heading">
+                <h2>Personal Details</h2>
+              </div>
+              <div class="details">
+                <p>Total Logins • <%= totalLogins %></p>
+                <p>Username • <%= username %></p>
+                <p>Email • <%= email %></p>
+                <p>Account Activated • <%= createdAt %></p>
+              </div>
             </div>
-            <div class="details">
-              <p>Total Logins • <%= totalLogins %></p>
-              <p>Account Activated • <%= createdAt %></p>
-            </div>
-          </div>
 
-          <div class="activity-box">
-            <div class="activity-heading">
-              <h2>Your Activity</h2>
+            <div class="recent__activity-box">
+              <div class="activity-heading">
+                <h2>Recent Files</h2>
+              </div>
+              <div class="details">
+                <% if (recentFiles.length === 0) { %>
+                <p>
+                  No file hsitory found. Wait for someone to upload. Only
+                  Filesize and Uploader information will appear here.
+                </p>
+                <% } else { %>
+                <div class="details">
+                  <% recentFiles.forEach(file => { %>
+                  <p><%= file.uploaderinfo.email %> • <%= file.fileSize %></p>
+                  <% }) %>
+                </div>
+                <% } %>
+              </div>
             </div>
-            <div class="details">
-              <p>Total Logins • <%= totalLogins %></p>
-              <p>Account Activated • <%= createdAt %></p>
+
+            <div class="recent__activity-box">
+              <div class="activity-heading">
+                <h2>Recent Users</h2>
+              </div>
+              <div class="details">
+                <% recentUsers.forEach(user => { %>
+                <p><%= user.username %> • <%= user.email.address %></p>
+                <% }) %>
+              </div>
             </div>
           </div>
         </div>

@@ -347,6 +347,26 @@ a:visited {
   z-index: -1;
 }
 
+.activities {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: var(--margin-medium);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.recent__activity-box {
+  max-width: 40rem;
+  background-color: var(--bg-color-1);
+  padding: 3rem 5rem;
+  border-radius: 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-medium);
+  border: 0.7px solid rgba(255, 255, 255, 0.2);
+}
+
 /* --------------------  User details Container -------------------  */
 .user-details-box {
   width: 77%;
