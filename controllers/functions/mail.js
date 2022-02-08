@@ -31,9 +31,7 @@ async function sendEmailToClient(user, req, res, next) {
       await sendMail({
         from: process.env.MAIL_CLIENT,
         to: emailTo,
-        subject: `Drop.it File Sharing. ${
-          user.email.address
-        } shared a file with you. Total size ${formatBytes(file.fileSize)}.`,
+        subject: `Drop.it File Sharing. ${user.email.address} shared a file with you.`,
         text: `${
           user.email.address
         } shared a file with you. Total size ${formatBytes(file.fileSize)}.`,
@@ -41,7 +39,7 @@ async function sendEmailToClient(user, req, res, next) {
           emailFrom: user.email.address,
           downloadLink: `${process.env.ROOT_DOMAIN}/uploads/file/${file.uuid}`,
           size: formatBytes(file.fileSize),
-          expires: '24 Hours',
+          expires: '5 Hours',
         }),
       });
 
