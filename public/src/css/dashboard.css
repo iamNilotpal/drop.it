@@ -98,7 +98,7 @@ body::after {
   right: 0;
   background-image: linear-gradient(
       to right bottom,
-      rgba(39, 39, 50, 0.5),
+      rgba(39, 39, 50, 0.6),
       rgba(35, 33, 36, 0.6)
     ),
     url('/img/bgs/bg18.svg');
