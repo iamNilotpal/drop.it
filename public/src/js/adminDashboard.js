@@ -418,7 +418,7 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response);
+          await renderManageFiles(response, 'Images');
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
@@ -447,7 +447,7 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response);
+          await renderManageFiles(response, 'Videos');
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
@@ -476,7 +476,7 @@
       if (authorizedResponse?.ok) {
         const response = await authorizedResponse.json();
         if (response.ok) {
-          await renderManageFiles(response);
+          await renderManageFiles(response, 'Documents');
 
           /* ----------- Delete File Functionality --------------  */
           const trashIcons = document.querySelectorAll('.bxs-trash');
@@ -696,7 +696,7 @@
     }
   }
 
-  async function renderManageFiles(response) {
+  async function renderManageFiles(response, type) {
     if (response.files.length === 0) {
       const html = `
       <section class="files-history-section">
@@ -707,7 +707,7 @@
             </h1>
             <div class="welcome-info">
               <h3 class="welcome-info-text">
-                Your uploads will not appear here. To look at them click on History Tab.
+                Only ${type} files history will appear here. 
               </h3>
             </div>
           </div>
@@ -722,7 +722,7 @@
             <h1>Nothing Has Been Uploaded Yet. Wait For Someone To Upload.</h1>
             <div class="files-modified-info">
               <p>
-                All Uploads history will appear here except yours. Files that are older than 8 Hours will be automatically deleted and will not show up in history.
+                  Files that are older than 5 Hours will be automatically deleted and will not show up in history. To look other files history click on their dedicated tab.
               </p>
             </div>
           </div>
@@ -893,26 +893,18 @@
             </div>
         
             <div class="user-details--box">
-              <p>Uploaded Files</p>
+              <p>Active Files</p>
               <p>${user.activeFiles}</p>
             </div>
             
             <div class="user-details--box">
-              <p>Total Storage</p>
+              <p>Active Storage</p>
               <p>${formatBytes(user.activeStorage)}</p> 
             </div>
 
             <div class="user-details--box">
               <p>Created At</p>
-              <p>${new Date(user.createdAt).toLocaleString('en-US', {
-                day: '2-digit',
-                month: '2-digit',
-                year: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true,
-              })}</p>
+              <p>${new Date(user.createdAt).toDateString()}}</p>
             </div>
 
             <div class="user-details--box trash">
@@ -1001,7 +993,7 @@
             <h1>No Active Admins Yet.</h1>
             <div class="users-modified-info">
               <p>
-                All Uploads history will appear here except yours. Files that are older than 8 Hours will be automatically deleted and will not show up in history.
+                Admin information includes username, email, account creation date. Note that you can remove other admins but not Super Admins.
               </p>
             </div>
           </div>
