@@ -117,7 +117,10 @@
                   Only Filesize and Uploader information will appear here.
                 </p>
                 <% } else { %> <% recentFiles.forEach(file => { %>
-                <p><%= file.uploaderInfo.email %> • <%= file.fileSize %></p>
+                <p>
+                  <%= file.uploaderInfo.email %> •
+                  <span class="file-size"><%= file.fileSize %></span>
+                </p>
                 <% }) %> <% } %>
               </div>
             </div>

@@ -50,6 +50,12 @@
       if (data) email.innerText = data;
     });
 
+    const fileFizes = document.querySelectorAll('.file-size');
+    fileFizes.forEach((fileSize) => {
+      const data = formatBytes(fileSize.innerText);
+      if (data) fileSize.innerText = data;
+    });
+
     const fileSizes = document.querySelectorAll('.file-size');
     fileSizes.forEach((file) => (file.innerText = formatBytes(file.innerText)));
   });
