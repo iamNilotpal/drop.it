@@ -73,6 +73,8 @@ html::-webkit-scrollbar-thumb {
 body {
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: var(--default-font-size);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: var(--font-color-3);
   font-weight: 400;
   min-height: 100vh;

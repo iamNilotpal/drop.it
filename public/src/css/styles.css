@@ -76,11 +76,8 @@ body {
   font-weight: 400;
   min-height: 100vh;
   line-height: 1.5;
-  /* background-image: linear-gradient(
-    to right bottom,
-    rgba(43, 43, 61, 0.9),
-    rgba(35, 30, 54, 0.8)
-  ); */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
