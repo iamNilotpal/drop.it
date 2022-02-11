@@ -1,13 +1,11 @@
 # Drop.it
 
-A nice project with a nice description
-
 ---
 
 ## Requirements
 
-For development, you will only need Node.js and a node global package, Yarn,
-installed in your environement.
+For development, you will only need Node.js and a node global package, Yarn or
+NPM, installed in your environement.
 
 ### Node
 
@@ -44,8 +42,6 @@ running the following command, just open again the command line and be happy.
 
     $ npm install npm -g
 
-###
-
 ### Yarn installation
 
 After installing node, this project will need yarn too, so just run the
@@ -59,12 +55,8 @@ following command.
 
     $ git clone https://github.com/YOUR_USERNAME/PROJECT_TITLE
     $ cd PROJECT_TITLE
-    $ yarn install
+    $ yarn install or npm install
 
 ## Running the project
 
-    $ yarn start
-
-## Simple build for production
-
-    $ yarn build
+    $ yarn dev or npm run dev
