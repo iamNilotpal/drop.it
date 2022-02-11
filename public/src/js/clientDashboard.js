@@ -40,6 +40,7 @@
   uploadContainerBtn.addEventListener('click', async () => {
     showLoadingAnimation();
     await authorizeUser(`${BASE_URL}/user/dashboard`, LOGIN_URL);
+    replaceSearchUrl('upload', 'File upload path');
 
     const html = `
       <div class="upload-wrapper">
@@ -290,6 +291,7 @@
   settingsContainerBtn.addEventListener('click', async () => {
     const SETTINGS_ENDPOINT = `${BASE_URL}/user/settings`;
     showLoadingAnimation();
+    replaceSearchUrl('settings', 'User settings path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -587,6 +589,8 @@
   const manageImagesSection = document.getElementById('manage-images-btn');
   manageImagesSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-images', 'Image history path');
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/user/history/get-images`,
@@ -616,6 +620,8 @@
   const manageVideosSection = document.getElementById('manage-videos-btn');
   manageVideosSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-videos', 'Videos hsitory path');
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/user/history/get-videos`,
@@ -642,9 +648,11 @@
   });
 
   /* ----------- Manage Documents Functionality Section --------------  */
-  const manageOthersSection = document.getElementById('manage-others-btn');
-  manageOthersSection.addEventListener('click', async () => {
+  const manageDocumentsSection = document.getElementById('manage-others-btn');
+  manageDocumentsSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-documents', 'Documents history path');
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/user/history/get-documents`,
@@ -791,16 +799,13 @@
     );
   }
 
-  /* -----------  Compress The File Name -----------  */
-  function getSmallFileName(filename, size = 20) {
-    if (filename.length > size) {
-      const length = filename.length;
-      return `${filename.slice(0, size)}...${filename.slice(
-        length - 20,
-        length
-      )}`;
-    }
-    return filename;
+  function replaceSearchUrl(path, info) {
+    const queryPath = new URLSearchParams({ path }).toString();
+    const state = {
+      info,
+      url: `${BASE_URL}/user/dashboard?${queryPath}`,
+    };
+    window.history.replaceState(state, '', state.url);
   }
 
   /* -----------  Password Show Hide Funtionality -----------  */

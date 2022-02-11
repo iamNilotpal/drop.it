@@ -12,6 +12,15 @@
     fileSizes.forEach((file) => (file.innerText = formatBytes(file.innerText)));
   });
 
+  function replaceSearchUrl(path, info) {
+    const queryPath = new URLSearchParams({ path }).toString();
+    const state = {
+      info,
+      url: `${BASE_URL}/user/dashboard?${queryPath}`,
+    };
+    window.history.replaceState(state, '', state.url);
+  }
+
   const conatiner = document.querySelector('.container');
 
   /* ----------- User Functionality Containers --------------  */
@@ -64,6 +73,7 @@
   settingsContainerBtn.addEventListener('click', async () => {
     const SETTINGS_ENDPOINT = `${BASE_URL}/admin/settings`;
     showLoadingAnimation();
+    replaceSearchUrl('settings', 'Settings path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -341,6 +351,8 @@
   const manageAdminsSection = document.getElementById('manage-admins-btn');
   manageAdminsSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-admins', 'Admins account path');
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-admins`,
@@ -415,6 +427,8 @@
   const manageImagesSection = document.getElementById('manage-images-btn');
   manageImagesSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-images', 'Images history path');
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-images`,
@@ -444,6 +458,7 @@
   const manageVideosSection = document.getElementById('manage-videos-btn');
   manageVideosSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-videos', 'Videos history path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -474,6 +489,8 @@
   const manageOthersSection = document.getElementById('manage-others-btn');
   manageOthersSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-documents', 'Documents history path');
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-documents`,
@@ -503,6 +520,8 @@
   const manageUsersSection = document.getElementById('manage-users-btn');
   manageUsersSection.addEventListener('click', async () => {
     showLoadingAnimation();
+    replaceSearchUrl('get-users', 'Users accounts path');
+
     try {
       const authorizedResponse = await authorizeUser(
         `${BASE_URL}/admin/get-users`,
