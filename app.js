@@ -29,7 +29,7 @@ nodeScheduler.scheduleJob(
 
 // --------------- Middlewares --------------- //
 app.use(helmet());
-app.use(compression());
+app.use(compression({ limit: 6 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

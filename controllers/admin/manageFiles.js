@@ -43,7 +43,7 @@ async function getVideos(user, req, res, next) {
   }
 }
 
-async function getOthers(user, req, res, next) {
+async function getDocuments(user, req, res, next) {
   try {
     const files = await File.find({
       'uploaderInfo.id': { $ne: user._id },
@@ -70,6 +70,7 @@ async function removeImage(user, req, res, next) {
     return next(httpErrors.InternalServerError('Something went wrong.'));
   }
 }
+
 async function removeVideos(user, req, res, next) {
   try {
     await removeFile(user, req, res, next);
@@ -78,10 +79,11 @@ async function removeVideos(user, req, res, next) {
     return next(httpErrors.InternalServerError('Something went wrong.'));
   }
 }
-async function removeOthers(user, req, res, next) {
+
+async function removeDocument(user, req, res, next) {
   try {
     await removeFile(user, req, res, next);
-    return await getOthers(user, req, res, next);
+    return await getDocuments(user, req, res, next);
   } catch (error) {
     return next(httpErrors.InternalServerError('Something went wrong.'));
   }
@@ -116,8 +118,8 @@ async function removeFile(user, req, res, next) {
 module.exports = {
   getImages,
   getVideos,
-  getOthers,
+  getDocuments,
   removeImage,
   removeVideos,
-  removeOthers,
+  removeDocument,
 };

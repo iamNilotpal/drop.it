@@ -130,7 +130,7 @@
     const emailForm = document.querySelector('#emailForm');
 
     const UPLOAD_ENDPOINT = `${BASE_URL}/api/file/upload`;
-    const EMAIL_ENDPOINT = `${BASE_URL}/api/file/send`;
+    const EMAIL_ENDPOINT = `${BASE_URL}/api/file/mail`;
     const MAX_ALLOWED_SIZE = 100 * 1024 * 1024; /* ---- 100MB -----  */
 
     /* ----------- Listening For File Input --------------  */
@@ -641,13 +641,13 @@
     }
   });
 
-  /* ----------- Manage Others Functionality Section --------------  */
+  /* ----------- Manage Documents Functionality Section --------------  */
   const manageOthersSection = document.getElementById('manage-others-btn');
   manageOthersSection.addEventListener('click', async () => {
     showLoadingAnimation();
     try {
       const authorizedResponse = await authorizeUser(
-        `${BASE_URL}/user/history/get-others`,
+        `${BASE_URL}/user/history/get-documents`,
         LOGIN_URL
       );
 
@@ -660,7 +660,7 @@
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-other')
+              deleteAndRenderFiles(e, 'remove-document')
             )
           );
         } else showToast(response.message);

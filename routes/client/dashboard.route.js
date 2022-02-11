@@ -4,109 +4,96 @@ const Router = express.Router();
 const authorizeUser = require('../../middlewares/authorizeUser');
 const { apiLimitter } = require('../../helpers/rateLimitter');
 
-// -------------------- User Dashboard -------------------- //
+/* ----------------------------------- Routes --------------------------------------- */
+
 Router.get(
   '/user/dashboard',
   authorizeUser,
   require('../../controllers/client/profile')
 );
 
-// ---------------------- Change Username And Email ----------------------
+Router.post(
+  '/api/file/upload',
+  apiLimitter,
+  authorizeUser,
+  require('../../controllers/client/upload')
+);
+
+Router.post(
+  '/api/file/mail',
+  apiLimitter,
+  authorizeUser,
+  require('../../controllers/client/mail')
+);
+
+Router.get(
+  '/user/settings',
+  authorizeUser,
+  require('../../controllers/client/settings')
+);
+
 Router.post(
   '/user/change-info',
   authorizeUser,
   require('../../controllers/client/changeinfo')
 );
 
-// -------------------- Upload File -------------------- //
-Router.post(
-  '/api/file/upload',
-  apiLimitter,
-  authorizeUser,
-  require('../../controllers/functions/upload')
-);
-
-// -------------------- Send Email -------------------- //
-Router.post(
-  '/api/file/send',
-  apiLimitter,
-  authorizeUser,
-  require('../../controllers/functions/mail')
-);
-
-// -------------------- Clear History End Point -------------------- //
 Router.delete(
   '/user/remove-history',
   authorizeUser,
-  require('../../controllers/functions/history').removeHistory
+  require('../../controllers/client/history').removeHistory
 );
 
-// ---------------- Get Image Files ---------------- //
-Router.get(
-  '/user/history/get-images',
-  authorizeUser,
-  require('../../controllers/functions/history').getImages
-);
-
-// ---------------- Get Video Files ---------------- //
-Router.get(
-  '/user/history/get-videos',
-  authorizeUser,
-  require('../../controllers/functions/history').getVideos
-);
-
-// ---------------- Get Other Files ---------------- //
-Router.get(
-  '/user/history/get-others',
-  authorizeUser,
-  require('../../controllers/functions/history').getOthers
-);
-
-// ---------------- Remove Image File ---------------- //
-Router.post(
-  '/user/history/remove-image',
-  authorizeUser,
-  require('../../controllers/functions/history').removeImage
-);
-
-// ---------------- Remove Video File ---------------- //
-Router.post(
-  '/user/history/remove-video',
-  authorizeUser,
-  require('../../controllers/functions/history').removeVideo
-);
-
-// ---------------- Remove Other File ---------------- //
-Router.post(
-  '/user/history/remove-other',
-  authorizeUser,
-  require('../../controllers/functions/history').removeOther
-);
-
-// -------------------- Settings End Point -------------------- //
-Router.get(
-  '/user/settings',
-  authorizeUser,
-  require('../../controllers/functions/settings')
-);
-
-// ---------------------- Delete Account ---------------------- //
 Router.delete(
   '/user/delete-account',
   authorizeUser,
   require('../../controllers/client/deleteAccount')
 );
 
-// -------------------- Download Page-------------------- //
 Router.get(
-  '/uploads/file/:uuid',
-  require('../../controllers/functions/download').renderDownloadPage
+  '/user/history/get-images',
+  authorizeUser,
+  require('../../controllers/client/history').getImages
 );
 
-// -------------------- Download End Point -------------------- //
+Router.get(
+  '/user/history/get-videos',
+  authorizeUser,
+  require('../../controllers/client/history').getVideos
+);
+
+Router.get(
+  '/user/history/get-documents',
+  authorizeUser,
+  require('../../controllers/client/history').getDocuments
+);
+
+Router.post(
+  '/user/history/remove-image',
+  authorizeUser,
+  require('../../controllers/client/history').removeImage
+);
+
+Router.post(
+  '/user/history/remove-video',
+  authorizeUser,
+  require('../../controllers/client/history').removeVideo
+);
+
+Router.post(
+  '/user/history/remove-document',
+  authorizeUser,
+  require('../../controllers/client/history').removeDocument
+);
+
+Router.get(
+  '/uploads/file/:uuid',
+  require('../../controllers/client/download').getDownloadPage
+);
+
 Router.get(
   '/file/download/:uuid',
-  require('../../controllers/functions/download').downloadFile
+  require('../../controllers/client/download').downloadFile
 );
 
 module.exports = Router;

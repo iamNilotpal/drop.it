@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  window.addEventListener('load', (e) => {
+  window.addEventListener('load', () => {
     const emails = document.querySelectorAll('.email-address');
     emails.forEach((email) => {
       const data = preetifyEmail(email);
@@ -470,13 +470,13 @@
     }
   });
 
-  /* ----------- Manage Others Functionality Section --------------  */
+  /* ----------- Manage Documents Functionality Section --------------  */
   const manageOthersSection = document.getElementById('manage-others-btn');
   manageOthersSection.addEventListener('click', async () => {
     showLoadingAnimation();
     try {
       const authorizedResponse = await authorizeUser(
-        `${BASE_URL}/admin/get-others`,
+        `${BASE_URL}/admin/get-documents`,
         LOGOUT_URL
       );
 
@@ -489,7 +489,7 @@
           const trashIcons = document.querySelectorAll('.bxs-trash');
           trashIcons.forEach((trashIcon) =>
             trashIcon.addEventListener('click', (e) =>
-              deleteAndRenderFiles(e, 'remove-other')
+              deleteAndRenderFiles(e, 'remove-document')
             )
           );
         } else showToast(response.message);
