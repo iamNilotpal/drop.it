@@ -33,7 +33,13 @@ Router.post('/login', loginLimitter, require('../../controllers/client/login'));
 Router.delete(
   '/logout',
   require('../../middlewares/authorizeUser'),
-  require('../../controllers/client/logout')
+  require('../../controllers/client/logout').logOutUser
+);
+
+Router.delete(
+  '/logout-all',
+  require('../../middlewares/authorizeUser'),
+  require('../../controllers/client/logout').logoutFromAll
 );
 
 Router.post(

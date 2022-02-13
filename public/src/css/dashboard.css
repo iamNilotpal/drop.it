@@ -1054,6 +1054,10 @@ a:visited {
   cursor: pointer;
 }
 
+.logout-all {
+  margin-top: 5rem;
+}
+
 /* --------------------  Modal Container -------------------  */
 .modal__wrapper {
   position: fixed;

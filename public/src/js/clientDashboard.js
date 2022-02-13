@@ -391,6 +391,16 @@
             <p class="margin-small">Removing your upload history will deactive all the links and it cann't be undone.</p>
             <button class="btn--save" id="clear-history-btn">Yes, Clear My Upload History</button>
           </div>
+
+          <div class="danger-zone logout-all">
+          <div class="title-settings">
+            <h2>Logout From All Devices?</h2>
+          </div>
+          <p class="margin-small">
+            It will remove all of your session history and will log you out from all devices. 
+          </p>
+          <button class="btn--save" id="logout-all-btn">Yes, Logout From All Devices</button>
+        </div>
         </div>
         </section>
         `;
@@ -548,6 +558,32 @@
                 const response = await authorizedResponse.json();
                 showToast(response.message);
                 clearUploadsBtn.innerText = 'Yes, Clear My Upload History';
+              }
+            } catch (error) {
+              showToast(error.message);
+            }
+          });
+
+          /* ----------- Logout From all Devices Button Functionality --------------  */
+          const logoutAllBtn = document.getElementById('logout-all-btn');
+          logoutAllBtn.addEventListener('click', async () => {
+            logoutAllBtn.innerText = 'Logging Out';
+
+            const LOGOUT_ALL = `${BASE_URL}/auth/logout-all`;
+            try {
+              const authorizedResponse = await authorizeUser(
+                LOGOUT_ALL,
+                LOGIN_URL,
+                'DELETE'
+              );
+
+              if (authorizedResponse?.ok) {
+                const response = await authorizedResponse.json();
+                showToast(response.message);
+                response.ok
+                  ? (logoutAllBtn.innerText = 'Logged Out')
+                  : (logoutAllBtn.innerText = 'Yes, Logout From All Devices');
+                setTimeout(() => (location.href = LOGIN_URL), 1800);
               }
             } catch (error) {
               showToast(error.message);

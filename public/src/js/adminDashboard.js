@@ -165,6 +165,16 @@
               </p>
               <button class="btn--save" id="delete-account-btn">Yes, Delete My Account</button>
             </div>
+
+            <div class="danger-zone logout-all">
+              <div class="title-settings">
+                <h2>Logout From All Devices?</h2>
+              </div>
+              <p class="margin-small">
+                It will remove all of your session history and will log you out from all devices. 
+              </p>
+              <button class="btn--save" id="logout-all-btn">Yes, Logout From All Devices</button>
+            </div>
           </div>
           </section>
           `;
@@ -287,6 +297,32 @@
                 deleteAccountBtn.innerText = 'Account Deleted';
                 setTimeout(() => (location.href = response.redirectUrl), 2000);
               } else deleteAccountBtn.innerText = 'Yes, Delete My Account';
+            }
+          });
+
+          /* ----------- Logout From all Devices Button Functionality --------------  */
+          const logoutAllBtn = document.getElementById('logout-all-btn');
+          logoutAllBtn.addEventListener('click', async () => {
+            logoutAllBtn.innerText = 'Logging Out';
+
+            const LOGOUT_ALL = `${BASE_URL}/admin/auth/logout-all`;
+            try {
+              const authorizedResponse = await authorizeUser(
+                LOGOUT_ALL,
+                LOGOUT_URL,
+                'DELETE'
+              );
+
+              if (authorizedResponse?.ok) {
+                const response = await authorizedResponse.json();
+                showToast(response.message);
+                response.ok
+                  ? (logoutAllBtn.innerText = 'Logged Out')
+                  : (logoutAllBtn.innerText = 'Yes, Logout From All Devices');
+                setTimeout(() => (location.href = LOGOUT_URL), 1800);
+              }
+            } catch (error) {
+              showToast(error.message);
             }
           });
         } else showToast(response.message);

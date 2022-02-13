@@ -25,7 +25,13 @@ Router.post(
 Router.delete(
   '/logout',
   require('../../middlewares/authorizeAdmin'),
-  require('../../controllers/admin/logout')
+  require('../../controllers/admin/logout').logOutAdmin
+);
+
+Router.delete(
+  '/logout-all',
+  require('../../middlewares/authorizeAdmin'),
+  require('../../controllers/admin/logout').logoutFromAll
 );
 
 module.exports = Router;

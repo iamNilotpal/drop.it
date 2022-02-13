@@ -7,7 +7,7 @@ const SessionSchema = new mongoose.Schema(
       ref: 'User',
       required: true,
     },
-    sessionToken: { type: String, required: true },
+    sessionToken: { type: String, required: true, unique: true },
     ip: { type: String, required: true },
     userAgent: { type: String, required: true },
   },
