@@ -26,7 +26,6 @@ const AdminSchema = new mongoose.Schema(
       default: false,
       required: true,
     },
-    totalLogins: { type: Number, default: 0, required: false },
   },
   { timestamps: true }
 );
@@ -34,15 +33,6 @@ const AdminSchema = new mongoose.Schema(
 AdminSchema.methods.checkPassword = async function (password) {
   try {
     return bcrypt.compare(password, this.password);
-  } catch (error) {
-    throw new Error('Something Went Wrong. Please Try Again Later.');
-  }
-};
-
-AdminSchema.methods.updateLoginsCount = async function () {
-  try {
-    this.totalLogins++;
-    return this.save();
   } catch (error) {
     throw new Error('Something Went Wrong. Please Try Again Later.');
   }
