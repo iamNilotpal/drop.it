@@ -7,6 +7,7 @@ async function userDashboardController(user, req, res, next) {
       username: user.username,
       email: user.email.address,
       role: user.role.toLowerCase(),
+      ip: req.ip,
       totalLogins: user.totalLogins,
       activeFiles: user.activeFiles,
       activeStorage: formatBytes(user.activeStorage),
