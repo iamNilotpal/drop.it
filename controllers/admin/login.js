@@ -23,7 +23,6 @@ async function loginUser(req, res, next) {
 
       if (admin.role === 'Admin') {
         await allowLogAdminIn(admin._id, req, res);
-        await admin.updateLoginsCount();
         return res.status(200).json({
           ok: true,
           message: 'Logged In. Redirecting To Admin Dashboard.',
