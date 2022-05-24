@@ -5,19 +5,8 @@ const cookieParser = require('cookie-parser');
 const nodeScheduler = require('node-schedule');
 const compression = require('compression');
 const helmet = require('helmet');
-const cors = require('cors');
 
 const app = express();
-const BASE_URL = 'https://drop-drive.herokuapp.com';
-
-app.use(
-  cors({
-    origin: BASE_URL,
-    credentials: true,
-    methods: ['GET', 'POST', 'DELETE'],
-  })
-);
-app.set('trust proxy', 1);
 app.disable('x-powered-by');
 
 /* ------- Scheduler To Delete Files From DB (Runs Every 5 Hour) ------- */
@@ -29,7 +18,7 @@ nodeScheduler.scheduleJob(
 
 // --------------- Middlewares --------------- //
 app.use(helmet());
-app.use(compression({ limit: 6 }));
+app.use(compression({ level: 6 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

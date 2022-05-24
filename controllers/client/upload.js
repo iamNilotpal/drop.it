@@ -1,6 +1,6 @@
 const path = require('path');
 const multer = require('multer');
-const { v4: uuid } = require('uuid');
+const { nanoid: uuid } = require('nanoid');
 const httpErrors = require('http-errors');
 const File = require('../../models/file');
 

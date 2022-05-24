@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  window.addEventListener('load', () => {
+  window.addEventListener('load', (e) => {
     const emails = document.querySelectorAll('.email-address');
     emails.forEach((email) => {
       const data = preetifyEmail(email);
@@ -11,15 +11,6 @@
     const fileSizes = document.querySelectorAll('.file-size');
     fileSizes.forEach((file) => (file.innerText = formatBytes(file.innerText)));
   });
-
-  function replaceSearchUrl(path, info) {
-    const queryPath = new URLSearchParams({ path }).toString();
-    const state = {
-      info,
-      url: `${BASE_URL}/user/dashboard?${queryPath}`,
-    };
-    window.history.replaceState(state, '', state.url);
-  }
 
   const conatiner = document.querySelector('.container');
 
@@ -59,12 +50,6 @@
       if (data) email.innerText = data;
     });
 
-    const fileFizes = document.querySelectorAll('.file-size');
-    fileFizes.forEach((fileSize) => {
-      const data = formatBytes(fileSize.innerText);
-      if (data) fileSize.innerText = data;
-    });
-
     const fileSizes = document.querySelectorAll('.file-size');
     fileSizes.forEach((file) => (file.innerText = formatBytes(file.innerText)));
   });
@@ -73,7 +58,6 @@
   settingsContainerBtn.addEventListener('click', async () => {
     const SETTINGS_ENDPOINT = `${BASE_URL}/admin/settings`;
     showLoadingAnimation();
-    replaceSearchUrl('settings', 'Settings path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -174,7 +158,7 @@
                 It will remove all of your session history and will log you out from all devices. 
               </p>
               <button class="btn--save" id="logout-all-btn">Yes, Logout From All Devices</button>
-            </div>
+          </div>
           </div>
           </section>
           `;
@@ -387,7 +371,6 @@
   const manageAdminsSection = document.getElementById('manage-admins-btn');
   manageAdminsSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-admins', 'Admins account path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -463,7 +446,6 @@
   const manageImagesSection = document.getElementById('manage-images-btn');
   manageImagesSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-images', 'Images history path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -494,7 +476,6 @@
   const manageVideosSection = document.getElementById('manage-videos-btn');
   manageVideosSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-videos', 'Videos history path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -521,11 +502,10 @@
     }
   });
 
-  /* ----------- Manage Documents Functionality Section --------------  */
+  /* ----------- Manage Others Functionality Section --------------  */
   const manageOthersSection = document.getElementById('manage-others-btn');
   manageOthersSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-documents', 'Documents history path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -556,7 +536,6 @@
   const manageUsersSection = document.getElementById('manage-users-btn');
   manageUsersSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-users', 'Users accounts path');
 
     try {
       const authorizedResponse = await authorizeUser(

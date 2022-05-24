@@ -40,7 +40,6 @@
   uploadContainerBtn.addEventListener('click', async () => {
     showLoadingAnimation();
     await authorizeUser(`${BASE_URL}/user/dashboard`, LOGIN_URL);
-    replaceSearchUrl('upload', 'File upload path');
 
     const html = `
       <div class="upload-wrapper">
@@ -160,9 +159,9 @@
       dropZone.classList.add('dragged');
     });
 
-    dropZone.addEventListener('dragleave', (e) => {
-      dropZone.classList.remove('dragged');
-    });
+    dropZone.addEventListener('dragleave', (e) =>
+      dropZone.classList.remove('dragged')
+    );
 
     /* ----------- Listening For Change Event -------------- */
     fileInput.addEventListener('change', () => {
@@ -196,7 +195,9 @@
       /* ----------- Getting The File And Creating Form Data--------------  */
       const files = fileInput.files;
       const formData = new FormData();
-      formData.append('file', files[0]);
+      formData.append('file', files[0], files[0].name);
+
+      console.log(files[0]);
 
       /* ----------- show the uploader --------------  */
       progressContainer.style.display = 'flex';
@@ -226,7 +227,7 @@
         }
       };
 
-      xhr.open('POST', UPLOAD_ENDPOINT);
+      xhr.open('POST', UPLOAD_ENDPOINT, true);
       xhr.send(formData);
     }
 
@@ -291,7 +292,6 @@
   settingsContainerBtn.addEventListener('click', async () => {
     const SETTINGS_ENDPOINT = `${BASE_URL}/user/settings`;
     showLoadingAnimation();
-    replaceSearchUrl('settings', 'User settings path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -393,14 +393,14 @@
           </div>
 
           <div class="danger-zone logout-all">
-          <div class="title-settings">
-            <h2>Logout From All Devices?</h2>
+            <div class="title-settings">
+              <h2>Logout From All Devices?</h2>
+            </div>
+            <p class="margin-small">
+              It will remove all of your session history and will log you out from all devices. 
+            </p>
+            <button class="btn--save" id="logout-all-btn">Yes, Logout From All Devices</button>
           </div>
-          <p class="margin-small">
-            It will remove all of your session history and will log you out from all devices. 
-          </p>
-          <button class="btn--save" id="logout-all-btn">Yes, Logout From All Devices</button>
-        </div>
         </div>
         </section>
         `;
@@ -625,7 +625,6 @@
   const manageImagesSection = document.getElementById('manage-images-btn');
   manageImagesSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-images', 'Image history path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -656,7 +655,6 @@
   const manageVideosSection = document.getElementById('manage-videos-btn');
   manageVideosSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-videos', 'Videos hsitory path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -687,7 +685,6 @@
   const manageDocumentsSection = document.getElementById('manage-others-btn');
   manageDocumentsSection.addEventListener('click', async () => {
     showLoadingAnimation();
-    replaceSearchUrl('get-documents', 'Documents history path');
 
     try {
       const authorizedResponse = await authorizeUser(
@@ -835,13 +832,16 @@
     );
   }
 
-  function replaceSearchUrl(path, info) {
-    const queryPath = new URLSearchParams({ path }).toString();
-    const state = {
-      info,
-      url: `${BASE_URL}/user/dashboard?${queryPath}`,
-    };
-    window.history.replaceState(state, '', state.url);
+  /* -----------  Compress The File Name -----------  */
+  function getSmallFileName(filename, size = 20) {
+    if (filename.length > size) {
+      const length = filename.length;
+      return `${filename.slice(0, size)}...${filename.slice(
+        length - 20,
+        length
+      )}`;
+    }
+    return filename;
   }
 
   /* -----------  Password Show Hide Funtionality -----------  */
@@ -909,6 +909,7 @@
     if (response?.ok) {
       renderManageFiles(response);
       const trashIcons = document.querySelectorAll('.bxs-trash');
+
       trashIcons.forEach((trashIcon) =>
         trashIcon.addEventListener('click', (e) =>
           deleteAndRenderFiles(e, endpoint)

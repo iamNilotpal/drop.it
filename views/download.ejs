@@ -21,10 +21,11 @@
         <% if(locals.error){ %>
             <div class="error--box">
               <div class="error--icon">
-                  <img src="/img/illustrations/404.svg" alt="Error Illustration" srcset="">
+                  <img src="/img/icons/gift.svg" alt="Gift icon" srcset="">
               </div>
               <div class="error-text">
-                <p class="paragraph-error">Oops! <%= locals.error %></p>
+                <h2>Oops! Something Went Wrong.</h2>
+                <p class="paragraph-error"><%= locals.error %></p>
               </div>
             </div>
             <% } else { %>

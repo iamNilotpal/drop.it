@@ -88,7 +88,7 @@ Router.post(
 
 Router.get(
   '/uploads/file/:uuid',
-  require('../../controllers/client/download').getDownloadPage
+  require('../../controllers/client/download').getdDownloadPage
 );
 
 Router.get(

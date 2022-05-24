@@ -1,32 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
 
 :root {
-  --bg-color-1: #272732;
-  --bg-color-2: #202035;
-  --bg-color-3: #2a2c43;
-  --bg-color-4: #242834;
+  --bg-color-1: #1a1a1a;
+  --bg-color-2: #212121;
+  --accent-color-1: #624ad8;
+  --accent-color-2: rgba(101, 77, 237, 0.7);
+  --text-color-1: #fff;
+  --text-color-2: #c4c5c5;
+  --box-shadow-1: rgba(47, 184, 255, 0.1) 0px 10px 40px,
+    #2fb8ff 0px 0px 0px 1px inset;
+  --box-shadow-2: rgba(47, 184, 255, 0.2) 0px 10px 40px,
+    #2fb8ff 0px 0px 0px 2px inset;
+  --border: 0.5px solid hsla(0, 0%, 100%, 0.3);
+  --danger-zone-color: #ff4557;
 
-  --font-color-1: #d0cae5;
-  --font-color-2: #c3c2c7;
-  --font-color-3: #ffffff;
-  --font-color-4: #2b2b3d;
-
-  --active-color: #353854;
-
-  --accent-color-1: #7464fb;
-  --accent-color-2: #5c54cb;
-  --accent-color-3: #6464fb;
-
+  --max-width: 70%;
+  --margin-extra-big: 15rem;
   --margin-big: 8rem;
+  --margin-medium: 6rem;
+  --margin-small: 4rem;
 
-  --default-font-size: 1.8rem;
+  --default-font-size: 1.5rem;
   --link-font-size: 1.5rem;
 
   --big-border-radius: 0.8rem;
   --default-border-radius: 0.5rem;
-
-  --shadow-dark: 1rem 2.5rem 6rem rgba(0, 0, 0, 0.35);
-  --shadow-medium: 1rem 2rem 4.5rem rgba(0, 0, 0, 0.35);
 }
 
 /* Universal Reset */
@@ -60,13 +58,13 @@ html::-webkit-scrollbar-thumb {
 }
 
 body {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif,
+    'IBM Plex Sans', sans-serif;
   font-size: var(--default-font-size);
-  color: var(--font-color-1);
+  color: var(--text-color-1);
   font-weight: 400;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -82,23 +80,17 @@ input {
 /* ******************** 404 Page ******************* */
 .container-404 {
   min-height: 100vh;
-  background-image: linear-gradient(
-    to right bottom,
-    var(--bg-color-1),
-    var(--bg-color-2)
-  );
+  background-color: var(--bg-color-2);
   position: relative;
+  background-image: url('/img/bgs/stars.svg');
 }
 
 /* ******************** 401 Page ******************* */
 .container-401 {
   min-height: 100vh;
-  background-image: linear-gradient(
-    to right bottom,
-    var(--bg-color-1),
-    var(--bg-color-2)
-  );
+  background-color: var(--bg-color-2);
   position: relative;
+  background-image: url('/img/bgs/stars.svg');
 }
 
 .logo-box {
@@ -106,7 +98,7 @@ input {
   position: absolute;
   top: 6rem;
   left: 8rem;
-  width: 15rem;
+  width: 13rem;
 }
 
 #logo {
@@ -125,15 +117,22 @@ input {
 
 .error__illustration-box {
   max-width: 42%;
+  margin-top: 30px;
   width: 100%;
+  height: 45rem;
   pointer-events: none;
   margin-right: var(--margin-big);
 }
 
+.error__illustration-box img {
+  width: 100%;
+}
+
 .error__illustration-special {
+  margin-top: 30px;
   border-radius: var(--big-border-radius);
   background-color: var(--accent-color-1);
-  box-shadow: var(--shadow-dark);
+  box-shadow: var(--box-shadow-2);
 }
 
 .error__content-box {

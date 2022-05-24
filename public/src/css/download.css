@@ -1,39 +1,28 @@
 :root {
-  --bg-color-1: #272732;
-  --bg-color-2: #202035;
-  --bg-color-3: #2a2c43;
-  --bg-color-4: #242834;
-  --bg-color-5: #1a1b21;
-
-  --font-color-1: #d0cae5;
-  --font-color-2: #c3c2c7;
-  --font-color-3: #ffffff;
-  --font-color-4: #2b2b3d;
-
-  --active-color: #353854;
-
-  --accent-color-1: #7464fb;
-  --accent-color-2: #5c54cb;
-  --accent-color-3: #6464fb;
-
+  --bg-color-1: #1a1a1a;
+  --bg-color-2: #212121;
+  --accent-color-1: #624ad8;
+  --accent-color-2: rgba(101, 77, 237, 0.7);
+  --text-color-1: #fff;
+  --text-color-2: #c4c5c5;
+  --box-shadow-1: rgba(47, 184, 255, 0.1) 0px 10px 40px,
+    #2fb8ff 0px 0px 0px 1px inset;
+  --box-shadow-2: rgba(47, 184, 255, 0.2) 0px 10px 40px,
+    #2fb8ff 0px 0px 0px 2px inset;
+  --border: 0.5px solid hsla(0, 0%, 100%, 0.3);
   --danger-zone-color: #ff4557;
 
   --max-width: 70%;
-
   --margin-extra-big: 15rem;
   --margin-big: 8rem;
   --margin-medium: 6rem;
   --margin-small: 4rem;
 
-  --default-font-size: 1.8rem;
+  --default-font-size: 1.5rem;
   --link-font-size: 1.5rem;
 
-  --default-border-radius: 0.5rem;
   --big-border-radius: 0.8rem;
-
-  --shadow-dark: 0.5rem 2.5rem 5rem rgba(0, 0, 0, 0.35);
-  --shadow-medium: 0 2rem 4.5rem rgba(0, 0, 0, 0.35);
-  --shadow-light: 0.5rem 1.5rem 2rem rgba(0, 0, 0, 0.25);
+  --default-border-radius: 0.5rem;
 }
 
 * {
@@ -47,49 +36,23 @@ html {
 }
 
 body {
-  font-family: system-ui;
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif,
+    'IBM Plex Sans', sans-serif;
   font-size: var(--default-font-size);
   font-weight: 400;
-  color: var(--font-color-1);
+  color: var(--text-color-1);
+  background-color: var(--bg-color-2);
+  background-image: url('/img/bgs/stars.svg');
   min-height: 100vh;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-
-  position: relative;
-}
-
-body::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(26, 27, 33, 0.85),
-      rgba(36, 40, 52, 0.9)
-    ),
-    url('/img/bgs/bg11.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: -1000;
 }
 
 a:link,
 a:visited {
-  color: var(--font-color-3);
   text-decoration: none;
 }
 
@@ -107,17 +70,17 @@ a:visited {
 .download {
   max-width: 35%;
   width: 100%;
-  background-image: linear-gradient(
-    to right bottom,
-    var(--bg-color-1),
-    var(--bg-color-4)
-  );
+  height: 42rem;
   padding: 4rem 2rem;
   padding-top: 3rem;
   border-radius: 2rem;
-  box-shadow: var(--shadow-medium);
+  margin-top: 30px;
+  box-shadow: var(--box-shadow-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .error--box {
@@ -130,22 +93,31 @@ a:visited {
 
 .error--icon img {
   pointer-events: none;
-  height: 31rem;
-  width: 37rem;
-  box-shadow: var(--shadow-medium);
-  background-color: var(--accent-color-1);
-  border-radius: var(--big-border-radius);
+  height: 120px;
+  width: 120px;
+  box-shadow: rgb(47 184 255 / 30%) 0px 10px 40px,
+    rgb(47 184 255) 0px 0px 0px 1px inset;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .error-text {
-  color: var(--danger-zone-color);
   margin-top: 2rem;
-  width: 69%;
-  font-weight: 600;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-text p {
+  margin-top: 15px;
+  width: 58%;
+  font-size: 15px;
+  color: var(--text-color-2);
 }
 
 .paragraph-error {
-  font-weight: 700;
   font-size: 1.75rem;
   line-height: 1.3;
   text-shadow: var(--shadow-medium);
@@ -180,6 +152,7 @@ small {
 
 .download__item-meta {
   margin-bottom: 1.8rem;
+  color: var(--text-color-2);
 }
 
 .download__item-meta h4 {

@@ -3,7 +3,7 @@ const fs = require('fs');
 const File = require('../../models/file');
 
 // -------------------- Render Logic For Download Page -------------------- //
-async function getDownloadPage(req, res, next) {
+async function getdDownloadPage(req, res, next) {
   try {
     if (req?.params?.uuid) {
       const { uuid } = req.params;
@@ -96,6 +96,6 @@ function formatBytes(bytes) {
 }
 
 module.exports = {
-  getDownloadPage,
+  getdDownloadPage,
   downloadFile,
 };
